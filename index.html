@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FixoServ | Home Services</title>
+
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ===================== NAVBAR ===================== -->
+
+<header>
+
+    <nav class="navbar">
+
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html">FIXOSERV</a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Right Side -->
+        <div class="account-area">
+
+            <!-- Before Login -->
+            <div id="guestMenu">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </div>
+
+            <!-- After Login -->
+            <div id="userMenu" style="display:none;">
+
+                <button id="menuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div id="menuDropdown">
+
+                    <a href="#" id="profileBtn">
+                        <i class="fa-solid fa-user"></i>
+                        My Profile
+                    </a>
+
+                    <a href="my-bookings.html">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        My Bookings
+                    </a>
+
+                    <a href="#" id="changePasswordBtn">
+                        <i class="fa-solid fa-lock"></i>
+                        Change Password
+                    </a>
+
+                    <a href="#" id="logoutBtn">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Logout
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Mobile Navigation -->
+
+    <div id="mobileNav">
+
+        <a href="index.html">Home</a>
+
+        <a href="about.html">About</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="booking.html">Booking</a>
+
+        <a href="contact.html">Contact</a>
+
+        <hr>
+
+        <div id="mobileGuestMenu">
+
+            <a href="login.html">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </a>
+
+            <a href="register.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Register
+            </a>
+
+        </div>
+
+        <div id="mobileUserMenu" style="display:none;">
+
+            <a href="#" id="mobileProfileBtn">
+                <i class="fa-solid fa-user"></i>
+                My Profile
+            </a>
+
+            <a href="my-bookings.html">
+                <i class="fa-solid fa-calendar-check"></i>
+                My Bookings
+            </a>
+
+            <a href="#" id="mobilePasswordBtn">
+                <i class="fa-solid fa-lock"></i>
+                Change Password
+            </a>
+
+            <a href="#" id="mobileLogoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+    <!-- ===================== HERO ===================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+
+                Trusted Home Service Experts
+
+            </span>
+
+            <h1>
+
+                Professional Home Services <br>
+
+                At Your Doorstep
+
+            </h1>
+
+            <p>
+
+                FixoServ provides trusted professionals for
+                Carpentry, Plumbing, Electrical,
+                Painting, Aluminium Works and
+                Building Maintenance.
+
+                We deliver quality workmanship,
+                affordable pricing and on-time service.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="booking.html" class="primary-btn">
+
+                    Book Service
+
+                </a>
+
+               
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="images/hero.jpg"
+                alt="FixoServ Home Services">
+
+        </div>
+
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+
+    <section class="services">
+
+        <div class="section-title">
+
+            <h2>
+
+                Our Services
+
+            </h2>
+
+            <p>
+
+                Everything you need for your
+                home and commercial maintenance.
+
+            </p>
+
+        </div>
+
+        <div class="services-container">
+
+            <!-- Carpentry -->
+
+            <div class="service-card">
+
+                <img src="images/carpentry.jpg"
+                    alt="Carpentry">
+
+                <h3>
+
+                    🪚 Carpentry
+
+                </h3>
+
+                <p>
+
+                    Furniture work, wardrobes,
+                    doors, windows,
+                    wooden interiors and repairs.
+
+                </p>
+
+                <a href="booking.html">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+            <!-- Plumbing -->
+
+            <div class="service-card">
+
+                <img src="images/plumbing.jpg"
+                    alt="Plumbing">
+
+                <h3>
+
+                    🚰 Plumbing
+
+                </h3>
+
+                <p>
+
+                    Pipe installation,
+                    leak repairs,
+                    taps,
+                    sinks and bathroom fittings.
+
+                </p>
+
+                <a href="booking.html">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+            <!-- Electrical -->
+
+            <div class="service-card">
+
+                <img src="images/electrical.jpg"
+                    alt="Electrical">
+
+                <h3>
+
+                    ⚡ Electrical
+
+                </h3>
+
+                <p>
+
+                    Wiring,
+                    switches,
+                    lighting,
+                    fan installation and repairs.
+
+                </p>
+
+                <a href="booking.html">
+
+                    Book Now
+
+                </a>
+
+            </div>
+                        <!-- Painting -->
+
+            <div class="service-card">
+
+                <img src="images/painting.jpg"
+                    alt="Painting">
+
+                <h3>
+
+                    🎨 Painting
+
+                </h3>
+
+                <p>
+
+                    Interior painting,
+                    exterior painting,
+                    wall putty,
+                    texture and premium finishes.
+
+                </p>
+
+                <a href="booking.html">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+            <!-- Building Maintenance -->
+
+            <div class="service-card">
+
+                <img src="images/building.jpg"
+                    alt="Building Maintenance">
+
+                <h3>
+
+                    🏢 Building Maintenance
+
+                </h3>
+
+                <p>
+
+                    Residential and commercial
+                    building maintenance,
+                    repair and renovation services.
+
+                </p>
+
+                <a href="booking.html">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+            <!-- Aluminium -->
+
+            <div class="service-card">
+
+                <img src="images/aluminium.jpg"
+                    alt="Aluminium">
+
+                <h3>
+
+                    🪟 Aluminium Works
+
+                </h3>
+
+                <p>
+
+                    Aluminium doors,
+                    windows,
+                    partitions,
+                    railings and custom fabrication.
+
+                </p>
+
+                <a href="booking.html">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about">
+
+        <div class="about-image">
+
+            <img src="images/about.jpg"
+                alt="About FixoServ">
+
+        </div>
+
+        <div class="about-content">
+
+            <span>ABOUT FIXOSERV</span>
+
+            <h2>
+
+                One Platform For All Home Services
+
+            </h2>
+
+            <p>
+
+                FixoServ connects customers with experienced,
+                verified professionals for a wide range of home
+                and commercial services.
+
+                From carpentry and plumbing to electrical,
+                painting, aluminium works and building maintenance,
+                we ensure reliable service, quality workmanship,
+                transparent pricing and complete customer satisfaction.
+
+            </p>
+
+            <div class="about-features">
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified Professionals
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Affordable Pricing
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    On-Time Service
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Trusted Quality
+                </div>
+
+            </div>
+
+            <a href="about.html" class="primary-btn">
+
+                Learn More
+
+            </a>
+
+        </div>
+
+    </section>
+
+   
+    <!-- ================= CALL TO ACTION ================= -->
+
+    <section class="cta">
+
+        <h2>
+
+            Need Professional Home Services?
+
+        </h2>
+
+        <p>
+
+            Book trusted experts today and get fast,
+            reliable and affordable service at your doorstep.
+
+        </p>
+
+        <a href="booking.html" class="primary-btn">
+
+            Book Now
+
+        </a>
+
+    </section>
+        <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-box">
+
+                <h2>FixoServ</h2>
+
+                <p>
+
+                    FixoServ is your trusted platform for reliable home
+                    and commercial services. We connect customers with
+                    experienced professionals to deliver quality work,
+                    affordable pricing and excellent customer service.
+
+                </p>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a href="services.html">Services</a></li>
+
+                    <li><a href="booking.html">Booking</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>Our Services</h3>
+
+                <ul>
+
+                    <li>Carpentry</li>
+
+                    <li>Electrical</li>
+
+                    <li>Plumbing</li>
+
+                    <li>Painting</li>
+
+                    <li>Building Maintenance</li>
+
+                    <li>Aluminium Works</li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>Contact</h3>
+
+                
+
+                <p>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    +91 8179570932
+
+                </p>
+
+                <p>
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    fixoserv@gmail.com
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 FixoServ
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= FLOATING BUTTONS ================= -->
+
+    <!-- WhatsApp -->
+
+    <a href="https://wa.me/918179570932"
+       class="whatsapp"
+       target="_blank">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+
+    <!-- Call -->
+
+    <a href="tel:+918179570932"
+       class="call">
+
+        <i class="fa-solid fa-phone"></i>
+
+    </a>
+
+<!-- ===========================
+PROFILE MODAL
+=========================== -->
+
+<div id="profileModal" class="profile-modal">
+
+    <div class="profile-box">
+
+        <span id="closeProfile">&times;</span>
+
+        <h2>My Profile</h2>
+
+        <div class="profile-image">
+
+            <i class="fa-solid fa-circle-user"></i>
+
+        </div>
+
+        <div class="profile-details">
+
+    <label>Full Name</label>
+
+    <input
+        type="text"
+        id="profileName"
+    >
+
+    <label>Email</label>
+
+    <input
+        type="email"
+        id="profileEmail"
+        readonly
+    >
+
+    <label>Phone Number</label>
+
+    <input
+        type="text"
+        id="profilePhone"
+        maxlength="10"
+    >
+
+</div>
+
+        <div class="profile-buttons">
+
+            <button id="saveProfileBtn">
+
+    Save Changes
+
+</button>
+
+            <button id="closeProfileBtn">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script type="module" src="js/script.js"></script>
+
+    <!-- ==========================
+CHANGE PASSWORD MODAL
+========================== -->
+
+<div id="passwordModal" class="profile-modal">
+
+    <div class="profile-box">
+
+        <span id="closePassword">&times;</span>
+
+        <h2>Change Password</h2>
+
+        <div class="profile-details">
+
+            <label>Current Password</label>
+
+            <div class="password-box">
+
+    <input
+        type="password"
+        id="currentPassword"
+        placeholder="Enter Current Password"
+    >
+
+    <i class="fa-solid fa-eye" id="toggleCurrentPassword"></i>
+
+</div>
+
+            <label>New Password</label>
+
+            <div class="password-box">
+
+    <input
+        type="password"
+        id="newPassword"
+        placeholder="Enter New Password"
+    >
+
+    <i class="fa-solid fa-eye" id="toggleNewPassword"></i>
+
+</div>
+            <label>Confirm Password</label>
+
+            <div class="password-box">
+
+    <input
+        type="password"
+        id="confirmNewPassword"
+        placeholder="Confirm New Password"
+    >
+
+    <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
+
+</div>
+
+            <a
+                href="#"
+                id="forgotPasswordLink"
+                style="color:#2563eb;text-decoration:none;font-size:14px;margin-top:8px;"
+            >
+                Forgot Password?
+            </a>
+
+        </div>
+
+        <div class="profile-buttons">
+
+            <button id="updatePasswordBtn">
+
+                Update Password
+
+            </button>
+
+            <button id="closePasswordBtn">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="toast"></div>
+
+</body>
+
+</html>

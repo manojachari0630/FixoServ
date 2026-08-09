@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FixoServ | Login</title>
+
+<link
+rel="stylesheet"
+href="css/login.css">
+
+<link rel="stylesheet" href="css/mobile.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="login-page">
+
+    <!-- Left Side -->
+
+    <div class="left-panel">
+
+        <div class="overlay">
+
+            <h1>FIXOSERV</h1>
+
+            <h2>
+
+                Welcome Back 👋
+
+            </h2>
+
+            <p>
+
+                Login to continue managing your bookings and services.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Right Side -->
+
+    <div class="right-panel">
+
+        <form
+        id="loginForm"
+        class="login-card">
+
+            <div class="logo">
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                <h2>FIXOSERV</h2>
+
+            </div>
+
+            <h1>
+
+                Login
+
+            </h1>
+
+            <p>
+
+                Sign in to your account
+
+            </p>
+
+            <!-- Email -->
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <input
+
+                    type="email"
+
+                    id="email"
+
+                    placeholder="Enter your email"
+
+                    required
+
+                >
+
+            </div>
+
+            <!-- Password -->
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+
+                    type="password"
+
+                    id="password"
+
+                    placeholder="Enter your password"
+
+                    required
+
+                >
+
+                <i
+
+                id="togglePassword"
+
+                class="fa-solid fa-eye"></i>
+
+            </div>
+
+                        <!-- Remember Me -->
+
+            <div class="options">
+
+                <label>
+
+                    <input
+                    type="checkbox"
+                    id="rememberMe">
+
+                    Remember Me
+
+                </label>
+
+                <a
+                href="#"
+                id="forgotPassword">
+
+                    Forgot Password?
+
+                </a>
+
+            </div>
+
+            <!-- Error Message -->
+
+            <p
+            id="loginError"
+            class="error-message">
+
+            </p>
+
+            <!-- Login Button -->
+
+            <button
+
+            type="submit"
+
+            id="loginBtn"
+
+            class="login-btn">
+
+                LOGIN
+
+            </button>
+
+           
+
+            <!-- Google Login -->
+
+           
+
+            <div class="bottom-text">
+
+                Don't have an account?
+
+                <a href="register.html">
+
+                    Register
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- Loading Overlay -->
+
+<div id="loadingScreen" class="loading-screen">
+
+    <div class="loader"></div>
+
+    <p>Signing In...</p>
+
+</div>
+
+<!-- ==========================
+     LOGIN SCRIPT
+========================== -->
+
+<script type="module">
+
+import { adminOrUserLogin } from "./firebase/login.js";
+
+const loginForm = document.getElementById("loginForm");
+
+const email = document.getElementById("email");
+
+const password = document.getElementById("password");
+
+const loginBtn = document.getElementById("loginBtn");
+
+const loadingScreen =
+document.getElementById("loadingScreen");
+
+const error =
+document.getElementById("loginError");
+
+/* ==========================
+   SHOW / HIDE PASSWORD
+========================== */
+
+const togglePassword =
+document.getElementById("togglePassword");
+
+togglePassword.addEventListener("click",()=>{
+
+    if(password.type==="password"){
+
+        password.type="text";
+
+        togglePassword.classList.remove("fa-eye");
+
+        togglePassword.classList.add("fa-eye-slash");
+
+    }
+
+    else{
+
+        password.type="password";
+
+        togglePassword.classList.remove("fa-eye-slash");
+
+        togglePassword.classList.add("fa-eye");
+
+    }
+
+});
+
+/* ==========================
+   LOGIN
+========================== */
+
+loginForm.addEventListener("submit",async(e)=>{
+
+    e.preventDefault();
+
+    error.textContent="";
+
+    loadingScreen.style.display="flex";
+
+    loginBtn.disabled=true;
+
+    const result = await adminOrUserLogin(
+
+        email.value.trim(),
+
+        password.value
+
+    );
+
+    loadingScreen.style.display="none";
+
+    loginBtn.disabled=false;
+
+    if(result.success){
+
+        window.location.href=result.redirect;
+
+    }
+
+    else{
+
+        error.textContent=result.message;
+
+    }
+
+});
+
+/* ==========================
+   FORGOT PASSWORD
+========================== */
+
+
+
+</script>
+<!-- Forgot Password Modal -->
+
+<div id="forgotModal" class="forgot-modal">
+
+    <div class="forgot-box">
+
+        <button id="closeForgot" class="close-forgot">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <i class="fa-solid fa-lock-open forgot-icon"></i>
+
+        <h2>Forgot Password?</h2>
+
+        <p>
+            Enter your registered email address and we'll
+            send you a password reset link.
+        </p>
+
+        <input
+            type="email"
+            id="resetEmail"
+            placeholder="Enter your email"
+        >
+
+        <p id="resetMessage"></p>
+
+        <button id="sendReset" class="reset-btn">
+            Send Reset Link
+        </button>
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

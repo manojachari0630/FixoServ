@@ -1,0 +1,735 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#222;
+}
+
+/* ================= Dashboard ================= */
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ================= Sidebar ================= */
+
+.sidebar{
+    width:260px;
+    background:#111827;
+    color:#fff;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    overflow:auto;
+}
+
+.logo{
+    padding:30px 20px;
+    text-align:center;
+}
+
+.logo i{
+    font-size:42px;
+    color:#3b82f6;
+}
+
+.logo h2{
+    margin-top:10px;
+}
+
+.logo span{
+    color:#cbd5e1;
+    font-size:13px;
+}
+
+.menu-title{
+    color:#94a3b8;
+    padding:18px;
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    margin:6px 12px;
+}
+
+.sidebar a{
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 18px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.sidebar li.active a,
+.sidebar a:hover{
+    background:#2563eb;
+}
+
+/* ================= Content ================= */
+
+.content{
+    flex:1;
+    margin-left:260px;
+    padding:35px;
+}
+
+/* ================= Topbar ================= */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.admin{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.admin i{
+    font-size:42px;
+    color:#2563eb;
+}
+
+/* ================= Title ================= */
+
+.page-title{
+    margin-bottom:30px;
+}
+
+.page-title h1{
+    font-size:34px;
+}
+
+.page-title p{
+    color:#777;
+    margin-top:8px;
+}
+
+/* ================= Settings List ================= */
+
+.settings-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* ================= Card ================= */
+
+.setting-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:20px 25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.setting-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.setting-card .left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.setting-card h3{
+
+    font-size:18px;
+
+}
+
+.setting-card p{
+
+    color:#777;
+
+    margin-top:4px;
+
+    font-size:14px;
+
+}
+
+.arrow{
+
+    color:#999;
+
+}
+
+/* ================= Icons ================= */
+
+.icon{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:22px;
+
+}
+
+.blue{
+
+    background:#2563eb;
+
+}
+
+.purple{
+
+    background:#7c3aed;
+
+}
+
+.green{
+
+    background:#10b981;
+
+}
+
+.orange{
+
+    background:#f59e0b;
+
+}
+
+.red{
+
+    background:#ef4444;
+
+}
+
+.logout-card h3{
+
+    color:#ef4444;
+
+}
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+    backdrop-filter:blur(8px);
+
+    animation:fade .25s ease;
+
+}
+
+.modal-content{
+
+    width:95%;
+
+    max-width:480px;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    animation:popup .3s ease;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+
+}
+
+.modal-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 25px;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.modal-header h2{
+
+    font-size:22px;
+
+}
+
+.close{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f3f4f6;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.close:hover{
+
+    background:#e5e7eb;
+
+}
+
+.modal-body{
+
+    padding:25px;
+
+}
+
+/* ==========================================
+   PROFILE
+========================================== */
+
+.profile-preview{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.profile-preview img{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid #2563eb;
+
+    margin-bottom:15px;
+
+}
+
+.profile-preview input{
+
+    width:100%;
+
+}
+
+.form-group{
+
+    margin-bottom:18px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:13px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:12px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.form-group input:focus{
+
+    border-color:#2563eb;
+
+}
+
+/* ==========================================
+   SELECT
+========================================== */
+
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:1px solid #d1d5db;
+
+    outline:none;
+
+    margin-top:12px;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.save-btn,
+.download-btn{
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.save-btn{
+
+    background:#2563eb;
+
+}
+
+.save-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.download-btn{
+
+    background:#10b981;
+
+}
+
+.download-btn:hover{
+
+    background:#059669;
+
+}
+
+/* ==========================================
+   ABOUT
+========================================== */
+
+.about-box{
+
+    text-align:center;
+
+}
+
+.big-icon{
+
+    font-size:70px;
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+
+}
+
+.about-box h2{
+
+    margin-bottom:8px;
+
+}
+
+.about-box h3{
+
+    color:#2563eb;
+
+    margin:10px 0;
+
+}
+
+.about-box p{
+
+    color:#666;
+
+    margin-top:6px;
+
+}
+
+/* ==========================================
+   DARK MODE
+========================================== */
+
+body.dark{
+
+    background:#111827;
+
+    color:#fff;
+
+}
+
+body.dark .content{
+
+    background:#111827;
+
+}
+
+body.dark .setting-card{
+
+    background:#1f2937;
+
+}
+
+body.dark .setting-card p{
+
+    color:#cbd5e1;
+
+}
+
+body.dark .modal-content{
+
+    background:#1f2937;
+
+    color:#fff;
+
+}
+
+body.dark input,
+body.dark select{
+
+    background:#374151;
+
+    color:#fff;
+
+    border:1px solid #4b5563;
+
+}
+
+body.dark .close{
+
+    background:#374151;
+
+    color:#fff;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+.sidebar{
+
+display:none;
+
+}
+
+.content{
+
+margin-left:0;
+
+padding:20px;
+
+}
+
+.modal-content{
+
+width:95%;
+
+}
+
+.setting-card{
+
+padding:18px;
+
+}
+
+}
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+@keyframes popup{
+
+from{
+
+opacity:0;
+
+transform:scale(.9);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        display: block !important;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+
+        width: 260px;
+
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+
+        z-index: 1000;
+    }
+
+    .sidebar.collapsed {
+        display: block !important;
+        transform: translateX(0);
+    }
+
+    .toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 40px;
+        height: 40px;
+
+        border: none;
+        border-radius: 10px;
+
+        background: #2563eb;
+        color: white;
+
+        cursor: pointer;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    .topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+}
+
+/* HIDE MENU BUTTON ON DESKTOP */
+.toggle {
+    display: none !important;
+}
+
+/* SHOW MENU BUTTON ONLY ON MOBILE */
+@media (max-width: 992px) {
+    .toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+}

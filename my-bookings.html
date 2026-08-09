@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Bookings | FixoServ</title>
+
+<link rel="stylesheet" href="css/my-bookings.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="css/mobile.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+
+        FIXOSERV
+
+    </a>
+
+    <a href="index.html" class="back-btn">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back
+
+    </a>
+
+</nav>
+
+<section class="bookings-section">
+
+    <h1>
+
+        My Bookings
+
+    </h1>
+
+    <p>
+
+        View all your booked services.
+
+    </p>
+
+
+    <div class="booking-tools">
+
+    <input
+        type="text"
+        id="searchBooking"
+        placeholder="🔍 Search Booking ID..."
+    >
+
+    <div class="filter-buttons">
+
+        <button class="filter-btn active" data-filter="all">
+            All
+        </button>
+
+        <button class="filter-btn" data-filter="pending">
+            Pending
+        </button>
+
+        <button class="filter-btn" data-filter="accepted">
+            Accepted
+        </button>
+
+        <button class="filter-btn" data-filter="completed">
+            Completed
+        </button>
+
+        <button class="filter-btn" data-filter="cancelled">
+            Cancelled
+        </button>
+
+    </div>
+
+</div>
+
+    <div id="bookingList">
+
+    </div>
+
+</section>
+
+<div class="stats-container">
+
+    <div class="stat-card">
+        <h2 id="totalBookings">0</h2>
+        <p>Total Bookings</p>
+    </div>
+
+    <div class="stat-card pending-card">
+        <h2 id="pendingBookings">0</h2>
+        <p>Pending</p>
+    </div>
+
+    <div class="stat-card accepted-card">
+        <h2 id="acceptedBookings">0</h2>
+        <p>Accepted</p>
+    </div>
+
+    <div class="stat-card completed-card">
+        <h2 id="completedBookings">0</h2>
+        <p>Completed</p>
+    </div>
+
+    <div class="stat-card cancelled-card">
+        <h2 id="cancelledBookings">0</h2>
+        <p>Cancelled</p>
+    </div>
+
+</div>
+
+<!-- View Details Modal -->
+
+<div id="detailsModal" class="modal">
+
+    <div class="modal-box">
+
+        <span id="closeModal">&times;</span>
+
+        <h2>Booking Details</h2>
+
+        <div id="bookingDetails"></div>
+
+    </div>
+
+</div>
+
+<script type="module" src="js/my-bookings.js"></script>
+
+</body>
+
+</html>

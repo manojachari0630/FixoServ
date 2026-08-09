@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FixoServ Admin Dashboard</title>
+
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/mobile.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            <h2>FIXOSERV</h2>
+
+            <span>Admin Panel</span>
+
+        </div>
+
+        <p class="menu-title">MAIN</p>
+
+        <ul>
+
+            <li class="active">
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="../pages/booking.html">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    Bookings
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="../pages/customer.html">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    Customers
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="../pages/services.html">
+
+                    <i class="fa-solid fa-toolbox"></i>
+
+                    Services
+
+                </a>
+
+            </li>
+
+            
+
+        </ul>
+
+      
+
+        <p class="menu-title">SYSTEM</p>
+
+<ul>
+
+    <li>
+
+        <a href="../pages/settings.html">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Settings
+
+        </a>
+
+    </li>
+
+    <li>
+
+        <a href="https://docs.google.com/spreadsheets/d/1DnV2RTvQlYmxLoRZbXwqd0U_zXI9RmAYTRmMdWz73Qw/edit?usp=sharing"
+           target="_blank">
+
+            <i class="fa-solid fa-star"></i>
+
+            Reviews
+
+        </a>
+
+    </li>
+
+</ul>
+
+           
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="content">
+
+        <!-- Top -->
+
+        <header class="topbar">
+
+    <div class="left">
+
+        <button id="menuToggle" class="toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <h2>Dashboard</h2>
+
+    </div>
+
+            <div class="right">
+
+                <div class="search">
+
+                    <i class="fa-solid fa-search"></i>
+
+                    <input type="text"
+                    placeholder="Search anything...">
+
+                </div>
+
+                <div class="notification-box">
+
+    <button class="bell" id="notificationBell">
+
+        <i class="fa-solid fa-bell"></i>
+
+        <span id="notificationDot" class="notification-dot"></span>
+
+    </button>
+
+    <div id="notificationPanel" class="notification-panel">
+
+        <h3>Notifications</h3>
+
+        <div id="notificationList">
+
+            <p class="empty-notification">
+
+                No Notifications
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+               <div class="admin" id="adminProfile">
+
+    <i class="fa-solid fa-circle-user"></i>
+
+    <div>
+
+        <h4 id="adminDisplayName">Admin</h4>
+
+        <small>Administrator</small>
+
+    </div>
+
+</div>
+
+            </div>
+
+        </header>
+
+        <!-- Welcome -->
+
+        <section class="welcome">
+
+            <div>
+
+                <h1>Welcome Back 👋</h1>
+
+                <p>
+
+                    Manage all FixoServ services, bookings and
+                    customers from one dashboard.
+
+                </p>
+
+            </div>
+
+            <button>
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Service
+
+            </button>
+
+        </section>
+
+        <!-- Cards -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-calendar-check blue"></i>
+
+                <div>
+
+                   <h2 id="totalBookings">0</h2>
+
+                    <p>Total Bookings</p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-clock orange"></i>
+
+                <div>
+
+                    <h2 id="pendingBookings">0</h2>
+
+                    <p>Pending</p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle-check green"></i>
+
+                <div>
+
+                   <h2 id="completedBookings">0</h2>
+
+                    <p>Completed</p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-users purple"></i>
+
+                <div>
+
+                    <h2 id="totalCustomers">0</h2>
+
+                    <p>Customers</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Continue in Part 2 -->
+                 <!-- ================= MAIN GRID ================= -->
+
+        <div class="dashboard-grid">
+
+            <!-- Recent Bookings -->
+
+            <section class="bookings">
+
+                <div class="section-header">
+
+                    <h3>Recent Bookings</h3>
+
+                    <a href="../pages/booking.html">View All</a>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Customer</th>
+                            <th>Service</th>
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                   
+
+                        <tbody id="recentBookings"></tbody>
+
+                    
+
+                </table>
+
+            </section>
+
+            <!-- Right Panel -->
+
+            <aside class="right-panel">
+
+                <!-- Business Summary -->
+
+                <div class="summary">
+
+                    <div class="chart-card">
+
+    <h2>Bookings Overview</h2>
+
+    <canvas id="bookingChart"></canvas>
+
+</div>
+
+                </div>
+
+
+</div>
+               
+
+             
+
+            </aside>
+
+        </div>
+
+        <!-- Footer -->
+
+        <footer>
+
+            <p>
+
+                © 2026 FixoServ Admin Dashboard |
+                Designed by Manoj Achari
+
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="../js/common.js"></script>
+<script type="module" src="../js/dashboard.js"></script>
+
+
+
+<div class="modal" id="adminModal">
+
+    <div class="modal-content">
+
+        <span class="close" id="closeAdmin">&times;</span>
+
+        <h2>Admin Profile</h2>
+
+        <br>
+
+        <p>
+
+            <b>Name :</b>
+
+            <span id="profileName"></span>
+
+        </p>
+
+        <br>
+
+        <p>
+
+            <b>Email :</b>
+
+            <span id="profileEmail"></span>
+
+        </p>
+
+        <br>
+
+        <p>
+
+            <b>Phone :</b>
+
+            <span id="profilePhone"></span>
+
+        </p>
+
+    </div>
+
+</div>
+</body>
+
+</html>

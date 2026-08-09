@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Services Management | FixoServ</title>
+
+    <link rel="stylesheet" href="../css/services.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            <h2>FIXOSERV</h2>
+
+            <span>Admin Panel</span>
+
+        </div>
+
+        <p class="menu-title">MAIN</p>
+
+        <ul>
+
+            <li>
+                <a href="../dashboard/dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="booking.html">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="customer.html">
+                    <i class="fa-solid fa-users"></i>
+                    Customers
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="services.html">
+                    <i class="fa-solid fa-toolbox"></i>
+                    Services
+                </a>
+            </li>
+
+            
+
+        </ul>
+
+        <p class="menu-title">SYSTEM</p>
+
+<ul>
+
+    <li>
+
+        <a href="../pages/settings.html">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Settings
+
+        </a>
+
+    </li>
+
+    <li>
+
+        <a href="https://docs.google.com/spreadsheets/d/1DnV2RTvQlYmxLoRZbXwqd0U_zXI9RmAYTRmMdWz73Qw/edit?usp=sharing"
+           target="_blank">
+
+            <i class="fa-solid fa-star"></i>
+
+            Reviews
+
+        </a>
+
+    </li>
+
+</ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+       
+
+
+<!-- Topbar -->
+
+<header class="topbar">
+
+    <div class="topbar-left">
+
+        <button class="toggle" id="sidebarToggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <h2>Services Management</h2>
+
+    </div>
+
+
+    <div class="topbar-right">
+
+        <div class="search">
+
+            <i class="fa-solid fa-search"></i>
+
+            <input
+                type="text"
+                placeholder="Search Services..."
+            >
+
+        </div>
+
+
+        <div class="admin" id="adminProfile">
+
+            <i class="fa-solid fa-circle-user"></i>
+
+            <div class="admin-info">
+
+                <h4 id="adminDisplayName">Admin</h4>
+
+                <small>Administrator</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+            
+
+        <!-- Page Header -->
+
+        <section class="page-header">
+
+            <div>
+
+                <h1>Services</h1>
+
+                <p>Manage all services provided by FixoServ.</p>
+
+            </div>
+
+            <button class="add-btn">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Service
+
+            </button>
+
+        </section>
+
+       
+        <!-- Category Filters -->
+
+       
+
+        <!-- Services Table -->
+
+        <section class="table-box">
+
+            <div class="table-header">
+
+                <h3>Available Services</h3>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                    <th>Image</th>
+                    <th>Service Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>   
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="servicesTableBody"></tbody>
+              
+</table>
+
+</section>
+
+<!-- Add Service Modal -->
+
+<div class="modal" id="addServiceModal">
+
+    <div class="modal-content add-service-modal">
+
+        <div class="modal-header">
+            <h2>Add New Service</h2>
+
+            <button id="closeModal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="modal-body">
+
+            <label>Service Name</label>
+
+            <input
+                type="text"
+                id="serviceName"
+                placeholder="Enter service name"
+            >
+
+            <label>Description</label>
+
+            <textarea
+                id="serviceDescription"
+                rows="4"
+                placeholder="Enter service description"
+            ></textarea>
+
+           <label>Select Image</label>
+
+<select id="serviceImage">
+
+    <option value="../images/carpentry.jpg">
+        Carpentry
+    </option>
+
+    <option value="../images/electrical.jpg">
+        Electrical
+    </option>
+
+    <option value="../images/plumbing.jpg">
+        Plumbing
+    </option>
+
+    <option value="../images/painting.jpg">
+        Painting
+    </option>
+
+    <option value="../images/building.jpg">
+        Building Maintenance
+    </option>
+
+    <option value="../images/aluminium.jpg">
+        Aluminium Works
+    </option>
+
+</select>
+
+            <div class="modal-buttons">
+
+                <button id="cancelBtn">
+                    Cancel
+                </button>
+
+                <button id="saveServiceBtn">
+                    Save Service
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script type="module" src="../js/common.js"></script>
+
+<script type="module" src="../js/services.js"></script>
+
+<!-- ======================
+ADMIN PROFILE
+====================== -->
+
+<div class="modal" id="adminModal">
+
+    <div class="modal-content">
+
+        <span class="close" id="closeAdmin">&times;</span>
+
+        <h2>Admin Profile</h2>
+
+        <br>
+
+        <p><b>Name :</b> <span id="profileName"></span></p>
+
+        <br>
+
+        <p><b>Email :</b> <span id="profileEmail"></span></p>
+
+        <br>
+
+        <p><b>Phone :</b> <span id="profilePhone"></span></p>
+
+    </div>
+
+</div>
+</body>
+</html>

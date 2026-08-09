@@ -1,0 +1,425 @@
+/* ===========================================
+   GOOGLE FONT
+=========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===========================================
+   RESET
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    overflow:hidden;
+}
+
+/* ===========================================
+   LOGIN CONTAINER
+=========================================== */
+
+.login-container{
+    width:100%;
+    height:100vh;
+    display:flex;
+}
+
+/* ===========================================
+   LEFT SIDE
+=========================================== */
+
+.login-left{
+    flex:1;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px;
+}
+
+.login-left h1{
+    font-size:60px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.login-left h2{
+    font-size:34px;
+    margin-top:10px;
+    margin-bottom:20px;
+}
+
+.login-left p{
+    font-size:18px;
+    line-height:1.9;
+    max-width:500px;
+    margin-bottom:40px;
+}
+
+.login-left ul{
+    list-style:none;
+}
+
+.login-left ul li{
+    margin:18px 0;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.login-left ul li i{
+    color:#fff;
+    font-size:20px;
+}
+
+/* ===========================================
+   RIGHT SIDE
+=========================================== */
+
+.login-right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#eef4ff;
+}
+
+/* ===========================================
+   LOGIN BOX
+=========================================== */
+
+.login-box{
+
+    width:450px;
+
+    background:#fff;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+}
+
+.login-box h2{
+
+    text-align:center;
+
+    color:#0f172a;
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.login-box p{
+
+    text-align:center;
+
+    color:#64748b;
+
+    margin-bottom:35px;
+
+}
+
+/* ===========================================
+   INPUT BOX
+=========================================== */
+
+.input-box{
+
+    position:relative;
+
+    margin-bottom:25px;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    padding:15px 50px;
+
+    border:1px solid #dbe4f1;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.input-box input:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 10px rgba(37,99,235,.15);
+
+}
+
+.input-box i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#64748b;
+
+}
+
+/* ===========================================
+   PASSWORD ICON
+=========================================== */
+
+#togglePassword{
+
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:#64748b;
+
+}
+/* ===========================================
+   OPTIONS
+=========================================== */
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    font-size:15px;
+}
+
+.options label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#475569;
+    cursor:pointer;
+}
+
+.options input{
+    accent-color:#2563eb;
+}
+
+.options a{
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:500;
+    transition:.3s;
+}
+
+.options a:hover{
+    color:#1d4ed8;
+}
+
+/* ===========================================
+   LOGIN BUTTON
+=========================================== */
+
+.login-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(37,99,235,.25);
+}
+
+.login-btn:active{
+    transform:scale(.98);
+}
+
+/* ===========================================
+   COPYRIGHT
+=========================================== */
+
+.copyright{
+    margin-top:35px;
+    text-align:center;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+/* ===========================================
+   ANIMATION
+=========================================== */
+
+.login-left{
+    animation:slideLeft .8s ease;
+}
+
+.login-box{
+    animation:slideRight .8s ease;
+}
+
+@keyframes slideLeft{
+
+    from{
+        opacity:0;
+        transform:translateX(-60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+@keyframes slideRight{
+
+    from{
+        opacity:0;
+        transform:translateX(60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+/* ===========================================
+   SCROLLBAR
+=========================================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eef4ff;
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media(max-width:992px){
+
+    body{
+        overflow:auto;
+    }
+
+    .login-container{
+        flex-direction:column;
+        height:auto;
+    }
+
+    .login-left{
+        padding:50px 35px;
+        text-align:center;
+        align-items:center;
+    }
+
+    .login-left h1{
+        font-size:46px;
+    }
+
+    .login-left h2{
+        font-size:28px;
+    }
+
+    .login-left p{
+        font-size:16px;
+        max-width:100%;
+    }
+
+    .login-left ul li{
+        justify-content:center;
+        font-size:16px;
+    }
+
+    .login-right{
+        padding:50px 20px;
+    }
+
+    .login-box{
+        width:100%;
+        max-width:500px;
+        padding:40px 30px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .login-left{
+        padding:40px 25px;
+    }
+
+    .login-left h1{
+        font-size:38px;
+    }
+
+    .login-left h2{
+        font-size:24px;
+    }
+
+    .login-box{
+        padding:30px 20px;
+    }
+
+    .login-box h2{
+        font-size:28px;
+    }
+
+    .options{
+        flex-direction:column;
+        gap:15px;
+        align-items:flex-start;
+    }
+
+    .input-box input{
+        padding:14px 45px;
+        font-size:15px;
+    }
+
+    .login-btn{
+        font-size:16px;
+        padding:14px;
+    }
+
+}

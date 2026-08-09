@@ -1,0 +1,514 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Booking Management | FixoServ</title>
+
+<link rel="stylesheet" href="../css/booking.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            <h2>FIXOSERV</h2>
+
+            <span>Admin Panel</span>
+
+        </div>
+
+        <p class="menu-title">MAIN</p>
+
+        <ul>
+
+            <li>
+
+                <a href="../dashboard/dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li class="active">
+
+                <a href="booking.html">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    Bookings
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="customer.html">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    Customers
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="services.html">
+
+                    <i class="fa-solid fa-toolbox"></i>
+
+                    Services
+
+                </a>
+
+            </li>
+
+            
+
+        </ul>
+
+        
+
+        <p class="menu-title">SYSTEM</p>
+
+<ul>
+
+    <li>
+
+        <a href="../pages/settings.html">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Settings
+
+        </a>
+
+    </li>
+
+    <li>
+
+        <a href="https://docs.google.com/spreadsheets/d/1DnV2RTvQlYmxLoRZbXwqd0U_zXI9RmAYTRmMdWz73Qw/edit?usp=sharing"
+           target="_blank">
+
+            <i class="fa-solid fa-star"></i>
+
+            Reviews
+
+        </a>
+
+    </li>
+
+</ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+        <!-- Topbar -->
+
+      <header class="topbar">
+
+    <header class="topbar">
+
+    <div class="topbar-left">
+
+        <button class="toggle" id="sidebarToggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <h2>Booking Management</h2>
+
+    </div>
+
+</header>
+
+            <div class="right">
+
+                <div class="search">
+
+                    <i class="fa-solid fa-search"></i>
+
+                    <input
+    type="text"
+    id="searchBooking"
+    placeholder="Search Booking...">
+
+                </div>
+
+                
+
+               <div class="admin" id="adminProfile">
+
+    <i class="fa-solid fa-circle-user"></i>
+
+    <div>
+
+        <h4 id="adminDisplayName">Admin</h4>
+
+        <small>Administrator</small>
+
+    </div>
+
+</div>
+
+<!-- Admin Profile Modal -->
+
+<div class="modal" id="adminModal">
+
+    <div class="modal-content">
+
+        <span class="close" id="closeAdmin">&times;</span>
+
+        <h2>Admin Profile</h2>
+
+        <br>
+
+        <p>
+
+            <b>Name :</b>
+
+            <span id="profileName">-</span>
+
+        </p>
+
+        <br>
+
+        <p>
+
+            <b>Email :</b>
+
+            <span id="profileEmail">-</span>
+
+        </p>
+
+        <br>
+
+        <p>
+
+            <b>Phone :</b>
+
+            <span id="profilePhone">-</span>
+
+        </p>
+
+    </div>
+
+</div>
+
+            </div>
+
+        </header>
+
+        <!-- Header -->
+
+        <section class="page-header">
+
+            <div>
+
+                <h1>Bookings</h1>
+
+                <p>Manage all customer bookings from here.</p>
+
+            </div>
+
+            
+
+        </section>
+
+        <!-- Stats -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-calendar-check blue"></i>
+
+                <div>
+
+                    <h2 id="totalBookings">0</h2>
+<p>Total Bookings</p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-clock orange"></i>
+
+                <div>
+
+                    <h2 id="pendingBookings">0</h2>
+<p>Pending</p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle-check green"></i>
+
+                <div>
+
+                    <h2 id="completedBookings">0</h2>
+<p>Completed</p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-ban red"></i>
+
+                <div>
+
+                   <h2 id="cancelledBookings">0</h2>
+<p>Cancelled</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Filters -->
+
+       <section class="toolbar">
+
+    <div class="filters">
+
+        <button id="allBtn" class="active">All</button>
+
+        <button id="todayBtn">Today</button>
+
+        <button id="pendingBtn">Pending</button>
+
+        <button id="completedBtn">Completed</button>
+
+        <button id="cancelledBtn">Cancelled</button>
+
+    </div>
+
+</section>
+
+        <!-- Booking Table -->
+
+        <section class="table-box">
+
+            <div class="table-header">
+
+                <h3>Recent Bookings</h3>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Customer</th>
+                        <th>Phone</th>
+                        <th>Service</th>
+                        <th>Date</th>
+                        
+                        <th>Status</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+<tbody id="bookingTableBody"></tbody>
+
+</table>
+
+</section>
+
+<!-- Pagination -->
+
+<div class="pagination">
+
+    <button>
+        <i class="fa-solid fa-angle-left"></i>
+    </button>
+
+    <button class="active">1</button>
+
+    <button>2</button>
+
+    <button>3</button>
+
+    <button>
+        <i class="fa-solid fa-angle-right"></i>
+    </button>
+
+</div>
+
+<!-- Booking Details Modal -->
+
+<div class="modal" id="bookingModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Booking Details</h2>
+
+            <button class="close-modal">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="detail">
+
+                <span>Booking ID</span>
+
+              <strong id="modalBookingId">-</strong>
+
+            </div>
+
+            <div class="detail">
+
+                <span>Customer</span>
+
+               <strong id="modalCustomerName">-</strong>
+            </div>
+
+            <div class="detail">
+
+                <span>Phone</span>
+
+                <strong id="modalPhone">-</strong>
+
+            </div>
+
+            <div class="detail">
+
+                <span>Address</span>
+
+               <strong id="modalAddress">-</strong>
+
+            </div>
+
+            <div class="detail">
+
+                <span>Service</span>
+
+               <strong id="modalService">-</strong>
+
+            </div>
+
+            <div class="detail">
+
+                <span>Preferred Date</span>
+
+               <strong id="modalDate">-</strong>
+            </div>
+
+            
+
+            <div class="detail">
+
+                <span>Status</span>
+
+               <strong id="modalStatus">-</strong>
+            </div>
+
+            <div class="detail">
+
+                  <span>Problem</span>
+
+                  <strong id="modalProblem">-</strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module" src="../js/common.js"></script>
+
+<script type="module" src="../js/bookings.js"></script>
+
+
+<!-- Reject Booking Modal -->
+
+<div class="modal" id="rejectModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Reject Booking</h2>
+
+            <button class="close-reject">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <label>Reason</label>
+
+            <label>Reason for Cancellation</label>
+
+<textarea
+    id="rejectReason"
+    rows="5"
+    placeholder="Example:
+The requested service cannot be provided on the selected date because the required materials are currently unavailable. Please contact us to reschedule your booking."
+></textarea>
+
+            <br><br>
+
+            <button id="confirmReject" class="reject-btn">
+
+                Reject Booking
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+
+</html>        

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings | FixoServ Admin</title>
+
+<link rel="stylesheet" href="../css/settings.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body class="light">
+
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-screwdriver-wrench"></i>
+
+<h2>FIXOSERV</h2>
+
+<span>Admin Panel</span>
+
+</div>
+
+<p class="menu-title">MAIN</p>
+
+<ul>
+
+<li>
+<a href="../dashboard/dashboard.html">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</a>
+</li>
+
+<li>
+<a href="booking.html">
+<i class="fa-solid fa-calendar-check"></i>
+Bookings
+</a>
+</li>
+
+<li>
+<a href="customer.html">
+<i class="fa-solid fa-users"></i>
+Customers
+</a>
+</li>
+
+<li>
+<a href="services.html">
+<i class="fa-solid fa-toolbox"></i>
+Services
+</a>
+</li>
+
+
+</ul>
+
+<p class="menu-title">SYSTEM</p>
+
+<ul>
+
+    <li>
+
+        <a href="../pages/settings.html">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Settings
+
+        </a>
+
+    </li>
+
+    <li>
+
+        <a href="https://docs.google.com/spreadsheets/d/1DnV2RTvQlYmxLoRZbXwqd0U_zXI9RmAYTRmMdWz73Qw/edit?usp=sharing"
+           target="_blank">
+
+            <i class="fa-solid fa-star"></i>
+
+            Reviews
+
+        </a>
+
+    </li>
+
+</ul>
+
+<li>
+<a href="#" id="sidebarLogout">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
+</li>
+
+</ul>
+
+</aside>
+
+<!-- Content -->
+
+<main class="content">
+
+<header class="topbar">
+
+    <div class="topbar-left">
+
+        <button class="toggle" id="sidebarToggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <h2>Settings</h2>
+
+    </div>
+
+    <div class="admin">
+
+<i class="fa-solid fa-circle-user"></i>
+
+<div>
+
+<h4 id="adminDisplayName">Admin</h4>
+
+<small>Administrator</small>
+
+</div>
+
+</div>
+
+</header>
+
+<section class="page-title">
+
+<h1>Settings</h1>
+
+<p>Manage your FixoServ account and application.</p>
+
+</section>
+
+<section class="settings-list">
+  <!-- Account -->
+
+<div class="setting-card" id="openProfile">
+
+    <div class="left">
+
+        <div class="icon blue">
+
+            <i class="fa-solid fa-user"></i>
+
+        </div>
+
+        <div>
+
+            <h3>Account</h3>
+
+            <p>Edit profile information</p>
+
+        </div>
+
+    </div>
+
+    <i class="fa-solid fa-chevron-right arrow"></i>
+
+</div>
+
+
+<!-- Appearance -->
+
+<div class="setting-card" id="openTheme">
+
+    <div class="left">
+
+        <div class="icon purple">
+
+            <i class="fa-solid fa-palette"></i>
+
+        </div>
+
+        <div>
+
+            <h3>Appearance</h3>
+
+            <p>Light & Dark mode</p>
+
+        </div>
+
+    </div>
+
+    <i class="fa-solid fa-chevron-right arrow"></i>
+
+</div>
+
+
+<!-- Export -->
+
+<div class="setting-card" id="openExport">
+
+    <div class="left">
+
+        <div class="icon green">
+
+            <i class="fa-solid fa-download"></i>
+
+        </div>
+
+        <div>
+
+            <h3>Export Data</h3>
+
+            <p>Download bookings & customers</p>
+
+        </div>
+
+    </div>
+
+    <i class="fa-solid fa-chevron-right arrow"></i>
+
+</div>
+
+
+<!-- About -->
+
+<div class="setting-card" id="openAbout">
+
+    <div class="left">
+
+        <div class="icon orange">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+        </div>
+
+        <div>
+
+            <h3>About</h3>
+
+            <p>Version & developer information</p>
+
+        </div>
+
+    </div>
+
+    <i class="fa-solid fa-chevron-right arrow"></i>
+
+</div>
+
+
+<!-- Logout -->
+
+<div class="setting-card logout-card" id="logoutBtn">
+
+    <div class="left">
+
+        <div class="icon red">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+        </div>
+
+        <div>
+
+            <h3>Logout</h3>
+
+            <p>Securely sign out</p>
+
+        </div>
+
+    </div>
+
+    <i class="fa-solid fa-chevron-right arrow"></i>
+
+</div>
+
+</section>  
+
+<!-- ===========================
+PROFILE MODAL
+=========================== -->
+
+<div class="modal" id="profileModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Edit Profile</h2>
+
+            <button class="close" id="closeProfile">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="profile-preview">
+
+                <img
+                id="profilePreview"
+                src="https://ui-avatars.com/api/?name=AD&background=2563eb&color=fff">
+
+                <input
+                type="file"
+                id="profileImage">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Admin Name</label>
+
+                <input
+                type="text"
+                id="adminName">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                type="email"
+                id="adminEmail">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Phone</label>
+
+                <input
+                type="text"
+                id="adminPhone">
+
+            </div>
+
+            <button
+            id="saveProfile"
+            class="save-btn">
+
+                Save Changes
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===========================
+THEME MODAL
+=========================== -->
+
+<div class="modal" id="themeModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Appearance</h2>
+
+            <button class="close" id="closeTheme">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <label>Choose Theme</label>
+
+            <select id="themeMode">
+
+                <option value="light">
+                    ☀ Light Mode
+                </option>
+
+                <option value="dark">
+                    🌙 Dark Mode
+                </option>
+
+            </select>
+
+            <button
+            id="saveTheme"
+            class="save-btn">
+
+                Apply Theme
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===========================
+EXPORT MODAL
+=========================== -->
+
+<div class="modal" id="exportModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Export Data</h2>
+
+            <button class="close" id="closeExport">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <button
+            id="downloadBookings"
+            class="download-btn">
+
+                <i class="fa-solid fa-file-csv"></i>
+
+                Download Bookings
+
+            </button>
+
+            <button
+            id="downloadCustomers"
+            class="download-btn">
+
+                <i class="fa-solid fa-users"></i>
+
+                Download Customers
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===========================
+ABOUT MODAL
+=========================== -->
+
+<div class="modal" id="aboutModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>About FixoServ</h2>
+
+            <button class="close" id="closeAbout">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="modal-body about-box">
+
+            <i class="fa-solid fa-screwdriver-wrench big-icon"></i>
+
+            <h2>FixoServ Admin Panel</h2>
+
+            <p>Version 1.0</p>
+
+            <p>Developed By</p>
+
+            <h3>Manoj Achari</h3>
+
+            <p>© 2026 FixoServ</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+</div>
+
+<script type="module" src="../js/settings.js"></script>
+<script type="module" src="../js/logout.js"></script>
+</body>
+
+</html>
+
+
+<!-- ===========================
+PROFILE MODAL
+=========================== -->
+
+<div class="modal" id="profileModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Edit Profile</h2>
+
+            <button class="close" id="closeProfile">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="profile-preview">
+
+                <img
+                id="profilePreview"
+                src="https://ui-avatars.com/api/?name=AD&background=2563eb&color=fff">
+
+                <input
+                type="file"
+                id="profileImage">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Admin Name</label>
+
+                <input
+                type="text"
+                id="adminName">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                type="email"
+                id="adminEmail">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Phone</label>
+
+                <input
+                type="text"
+                id="adminPhone">
+
+            </div>
+
+            <button
+            id="saveProfile"
+            class="save-btn">
+
+                Save Changes
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===========================
+THEME MODAL
+=========================== -->
+
+<div class="modal" id="themeModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Appearance</h2>
+
+            <button class="close" id="closeTheme">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <label>Choose Theme</label>
+
+            <select id="themeMode">
+
+                <option value="light">
+                    ☀ Light Mode
+                </option>
+
+                <option value="dark">
+                    🌙 Dark Mode
+                </option>
+
+            </select>
+
+            <button
+            id="saveTheme"
+            class="save-btn">
+
+                Apply Theme
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===========================
+EXPORT MODAL
+=========================== -->
+
+<div class="modal" id="exportModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Export Data</h2>
+
+            <button class="close" id="closeExport">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <button
+            id="downloadBookings"
+            class="download-btn">
+
+                <i class="fa-solid fa-file-csv"></i>
+
+                Download Bookings
+
+            </button>
+
+            <button
+            id="downloadCustomers"
+            class="download-btn">
+
+                <i class="fa-solid fa-users"></i>
+
+                Download Customers
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===========================
+ABOUT MODAL
+=========================== -->
+
+<div class="modal" id="aboutModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>About FixoServ</h2>
+
+            <button class="close" id="closeAbout">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="modal-body about-box">
+
+            <i class="fa-solid fa-screwdriver-wrench big-icon"></i>
+
+            <h2>FixoServ Admin Panel</h2>
+
+            <p>Version 1.0</p>
+
+            <p>Developed By</p>
+
+            <h3>Manoj Achari</h3>
+
+            <p>© 2026 FixoServ</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+</div>
+
+<script type="module" src="../js/settings.js"></script>
+<script type="module" src="../js/logout.js"></script>
+</body>
+
+</html>

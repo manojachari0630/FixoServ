@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FixoServ | Register</title>
+
+<link
+rel="stylesheet"
+href="css/register.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="css/mobile.css">
+
+</head>
+
+<body>
+
+<div class="register-page">
+
+    <!-- Left Panel -->
+
+    <div class="left-panel">
+
+        <div class="overlay">
+
+            <h1>FIXOSERV</h1>
+
+            <h2>
+
+                Join FixoServ Today 🚀
+
+            </h2>
+
+            <p>
+
+                Create your account and book professional home services anytime.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Right Panel -->
+
+    <div class="right-panel">
+
+        <form
+        id="registerForm"
+        class="register-card">
+
+            <div class="logo">
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                <h2>FIXOSERV</h2>
+
+            </div>
+
+            <h1>
+
+                Create Account
+
+            </h1>
+
+            <p>
+
+                Register to continue
+
+            </p>
+
+            <!-- Full Name -->
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-user"></i>
+
+                <input
+
+                    type="text"
+
+                    id="fullName"
+
+                    placeholder="Full Name"
+
+                    required
+
+                >
+
+            </div>
+
+            <!-- Email -->
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <input
+
+                    type="email"
+
+                    id="email"
+
+                    placeholder="Email Address"
+
+                    required
+
+                >
+
+            </div>
+
+            <!-- Phone -->
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <input
+
+                    type="tel"
+
+                    id="phone"
+
+                    placeholder="Phone Number"
+
+                    maxlength="10"
+
+                    required
+
+                >
+
+            </div>
+
+            <!-- Password -->
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+
+                    type="password"
+
+                    id="password"
+
+                    placeholder="Password"
+
+                    required
+
+                >
+
+                <i
+
+                class="fa-solid fa-eye"
+
+                id="togglePassword"></i>
+
+            </div>
+
+                        <!-- Confirm Password -->
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <input
+
+                    type="password"
+
+                    id="confirmPassword"
+
+                    placeholder="Confirm Password"
+
+                    required
+
+                >
+
+                <i
+
+                class="fa-solid fa-eye"
+
+                id="toggleConfirmPassword"></i>
+
+            </div>
+
+            <!-- Terms -->
+
+            <div class="options">
+
+                <label>
+
+                    <input
+                    type="checkbox"
+                    id="terms"
+                    required>
+
+                    I agree to the
+
+                    <a href="#">
+
+                        Terms & Conditions
+
+                    </a>
+
+                </label>
+
+            </div>
+
+            <!-- Error -->
+
+            <p
+
+            id="registerError"
+
+            class="error-message">
+
+            </p>
+
+            <!-- Register Button -->
+
+            <button
+
+                type="submit"
+
+                id="registerBtn"
+
+                class="register-btn">
+
+                CREATE ACCOUNT
+
+            </button>
+
+            
+
+          
+
+            
+
+            <div class="bottom-text">
+
+                Already have an account?
+
+                <a href="login.html">
+
+                    Login
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- ==========================
+     LOADING SCREEN
+========================== -->
+
+<div id="loadingScreen" class="loading-screen">
+
+    <div class="loader"></div>
+
+    <p>Creating Account...</p>
+
+</div>
+
+<!-- ==========================
+     REGISTER SCRIPT
+========================== -->
+
+<script type="module">
+
+import { createNewUser } from "./firebase/register.js";
+import { googleSignIn } from "./firebase/auth.js";
+
+const form = document.getElementById("registerForm");
+
+const fullName = document.getElementById("fullName");
+
+const email = document.getElementById("email");
+
+const phone = document.getElementById("phone");
+
+const password = document.getElementById("password");
+
+const confirmPassword =
+document.getElementById("confirmPassword");
+
+const registerBtn =
+document.getElementById("registerBtn");
+
+const loading =
+document.getElementById("loadingScreen");
+
+const error =
+document.getElementById("registerError");
+
+/* ==========================
+   SHOW PASSWORD
+========================== */
+
+document
+.getElementById("togglePassword")
+.addEventListener("click",()=>{
+
+    if(password.type==="password"){
+
+        password.type="text";
+
+        document
+        .getElementById("togglePassword")
+        .classList.replace(
+            "fa-eye",
+            "fa-eye-slash"
+        );
+
+    }
+
+    else{
+
+        password.type="password";
+
+        document
+        .getElementById("togglePassword")
+        .classList.replace(
+            "fa-eye-slash",
+            "fa-eye"
+        );
+
+    }
+
+});
+
+/* ==========================
+   SHOW CONFIRM PASSWORD
+========================== */
+
+document
+.getElementById("toggleConfirmPassword")
+.addEventListener("click",()=>{
+
+    if(confirmPassword.type==="password"){
+
+        confirmPassword.type="text";
+
+        document
+        .getElementById("toggleConfirmPassword")
+        .classList.replace(
+            "fa-eye",
+            "fa-eye-slash"
+        );
+
+    }
+
+    else{
+
+        confirmPassword.type="password";
+
+        document
+        .getElementById("toggleConfirmPassword")
+        .classList.replace(
+            "fa-eye-slash",
+            "fa-eye"
+        );
+
+    }
+
+});
+
+/* ==========================
+   REGISTER
+========================== */
+
+form.addEventListener("submit",async(e)=>{
+
+    e.preventDefault();
+
+    error.textContent="";
+
+    if(password.value!==confirmPassword.value){
+
+        error.textContent="Passwords do not match.";
+
+        return;
+
+    }
+
+    loading.style.display="flex";
+
+    registerBtn.disabled=true;
+
+    const result = await createNewUser(
+
+    fullName.value.trim(),
+
+    email.value.trim(),
+
+    phone.value.trim(),
+
+    password.value
+
+);
+
+    loading.style.display="none";
+
+    registerBtn.disabled=false;
+
+    if(result.success){
+
+        alert("Account Created Successfully.");
+
+        window.location.href="login.html";
+
+    }
+
+    else{
+
+        error.textContent=result.message;
+
+    }
+
+});
+
+
+/* ==========================
+   GOOGLE REGISTER
+========================== */
+
+document
+.getElementById("googleRegisterBtn")
+.addEventListener("click", async () => {
+
+    try {
+
+        loading.style.display = "flex";
+
+        const result = await googleSignIn();
+
+        loading.style.display = "none";
+
+        alert("Google Sign In Successful.");
+
+        if (result.role === "admin") {
+
+            window.location.href = "admin/dashboard/dashboard.html";
+
+        } else {
+
+            window.location.href = "index.html";
+
+        }
+
+    }
+
+    catch (err) {
+
+        loading.style.display = "none";
+
+        error.textContent = err.message;
+
+        console.error(err);
+
+    }
+
+});
+
+</script>
+<script type="module" src="js/register.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,821 @@
+/* ===========================================
+   MOBILE RESPONSIVE
+=========================================== */
+
+@media screen and (max-width:768px){
+
+/* Header */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:99999;
+    background:#fff;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 18px;
+}
+
+/* Logo */
+
+.logo{
+    flex:1;
+}
+
+.logo a{
+    font-size:28px;
+    font-weight:700;
+}
+
+/* Hide Desktop Navigation */
+
+.nav-links{
+    display:none !important;
+}
+
+.book-btn{
+    display:none !important;
+}
+
+/* Right Side */
+
+.account-area{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+/* Guest Buttons */
+
+#guestMenu{
+    display:none;
+}
+
+/* Menu Button */
+
+#menuBtn{
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* ==========================
+   MOBILE NAVIGATION
+========================== */
+
+#mobileNav{
+
+    display:none;
+
+    position:absolute;
+
+    top:72px;
+
+    left:0;
+
+    width:100%;
+
+    background:#fff;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    border-radius:0 0 18px 18px;
+
+    overflow:hidden;
+
+    z-index:99999;
+
+}
+
+#mobileNav.show{
+    display:block;
+}
+
+#mobileNav a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px 22px;
+
+    color:#333;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+    border-bottom:1px solid #eee;
+
+}
+
+#mobileNav a:hover{
+
+    background:#f5f7ff;
+
+    color:#2563eb;
+
+}
+
+#mobileNav hr{
+
+    border:none;
+
+    border-top:1px solid #eee;
+
+    margin:0;
+
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+    flex-direction:column;
+    padding:40px 20px;
+    text-align:center;
+}
+
+.hero-content{
+    width:100%;
+}
+
+.hero-content h1{
+    font-size:34px;
+    line-height:1.3;
+}
+
+.hero-content p{
+    font-size:16px;
+    margin-top:18px;
+}
+
+.hero-buttons{
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.hero-image{
+    width:100%;
+    margin-top:30px;
+}
+
+.hero-image img{
+    width:100%;
+}
+
+/* ==========================
+   SERVICES
+========================== */
+
+.services-container{
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+/* ==========================
+   ABOUT
+========================== */
+
+.about{
+    flex-direction:column;
+    padding:40px 20px;
+}
+
+.about-image,
+.about-content{
+    width:100%;
+}
+
+/* ==========================
+   CTA
+========================== */
+
+.cta{
+    padding:40px 20px;
+    text-align:center;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+.footer-container{
+    grid-template-columns:1fr;
+    text-align:center;
+    gap:25px;
+}
+
+.footer-box{
+    width:100%;
+}
+
+/* ==========================
+   FLOATING BUTTONS
+========================== */
+
+.whatsapp,
+.call{
+
+    width:55px;
+
+    height:55px;
+
+}
+
+}
+
+
+
+/* ==========================
+ABOUT PAGE
+========================== */
+
+/* ==========================================
+ABOUT PAGE MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+.about-company{
+    width:90%;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    text-align:center;
+}
+
+.about-image,
+.about-content{
+    width:100%;
+}
+
+.about-content h2{
+    font-size:34px;
+    line-height:1.3;
+}
+
+.about-content p{
+    font-size:16px;
+}
+
+.mission-vision{
+    width:90%;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.mission-card,
+.vision-card{
+    padding:30px 20px;
+}
+
+.service-row,
+.service-row.reverse{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+    margin:60px 0;
+}
+
+.service-image,
+.service-content{
+    width:100%;
+}
+
+.service-image img{
+    height:auto;
+}
+
+.service-content{
+    text-align:center;
+}
+
+.service-content span{
+    font-size:38px;
+}
+
+.service-content h3{
+    font-size:30px;
+}
+
+.service-content p{
+    font-size:16px;
+}
+
+.cta-section{
+    padding:50px 25px;
+}
+
+.cta-content h2{
+    font-size:32px;
+}
+
+.cta-content p{
+    width:100%;
+    font-size:16px;
+}
+
+.cta-buttons{
+    flex-direction:column;
+}
+
+.cta-buttons a{
+    width:100%;
+}
+
+}
+
+
+
+
+/* ================= SERVICES PAGE ================= */
+
+@media screen and (max-width:768px){
+
+.section-title{
+    padding:20px;
+    margin-bottom:15px;
+}
+
+.section-title h2{
+    font-size:30px;
+}
+
+.section-title p{
+    font-size:15px;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+    padding:0 15px 20px;
+}
+
+.service-card{
+    margin:0;
+}
+
+.service-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.service-info{
+    padding:18px;
+}
+
+.service-info h3{
+    font-size:22px;
+    text-align:center;
+}
+
+.service-info p{
+    font-size:15px;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.service-info .primary-btn{
+    width:170px;
+    margin:15px auto 0;
+}
+
+/* Details */
+
+.detail-row{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    padding:25px 15px;
+    margin-bottom:10px;
+}
+
+.detail-row.reverse{
+    flex-direction:column;
+}
+
+.detail-image,
+.detail-content{
+    width:100%;
+}
+
+.detail-image img{
+    width:100%;
+    border-radius:15px;
+}
+
+.detail-content{
+    text-align:center;
+}
+
+.detail-content ul{
+    text-align:left;
+    margin:20px auto;
+    width:90%;
+}
+
+.detail-content .primary-btn{
+    width:170px;
+    margin:20px auto 0;
+}
+
+/* CTA */
+
+.cta{
+    padding:40px 20px;
+}
+
+.cta-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.cta-buttons a{
+    width:100%;
+    text-align:center;
+}
+
+}
+
+
+/* ==========================================
+BOOKING PAGE
+========================================== */
+
+@media screen and (max-width:768px){
+
+.booking-section{
+    padding:20px 15px;
+}
+
+.booking-container{
+    width:100%;
+    padding:20px;
+    border-radius:18px;
+}
+
+.booking-container h1{
+    font-size:32px;
+    text-align:center;
+}
+
+.booking-container h2{
+    font-size:24px;
+    text-align:center;
+}
+
+.booking-container h3{
+    font-size:22px;
+    text-align:center;
+}
+
+.booking-container p{
+    text-align:center;
+    font-size:15px;
+}
+
+/* Form */
+
+.booking-form{
+    width:100%;
+}
+
+.form-group{
+    width:100%;
+    margin-bottom:16px;
+}
+
+.form-row{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.booking-form input,
+.booking-form textarea,
+.booking-form select{
+    width:100%;
+    font-size:16px;
+    padding:14px;
+}
+
+.booking-form textarea{
+    min-height:120px;
+}
+
+/* Buttons */
+
+.button-group{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:25px;
+}
+
+.button-group button,
+.button-group a{
+    width:100%;
+}
+
+/* Payment Note */
+
+.payment-message{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    gap:15px;
+    padding:18px;
+}
+
+.payment-message i{
+    font-size:36px;
+}
+
+.payment-message h4{
+    font-size:20px;
+}
+
+.payment-message p{
+    text-align:left;
+    line-height:1.8;
+}
+
+/* Progress */
+
+.progress-bar{
+    width:100%;
+}
+
+.progress-step{
+    font-size:13px;
+}
+
+/* Back Button */
+
+.back-home{
+    width:100%;
+    text-align:center;
+}
+
+}
+
+/* ==========================================
+BOOKING STEP 2 - SERVICE SELECTION
+========================================== */
+
+.payment-message{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+    background:#f8fbff;
+    border:2px solid #2563eb;
+    border-radius:15px;
+    padding:18px;
+    margin-top:20px;
+}
+
+.payment-message i{
+    font-size:28px;
+    color:#2563eb;
+    margin-top:5px;
+}
+
+.payment-message h4{
+    font-size:18px;
+    color:#0f3fb8;
+    margin-bottom:10px;
+}
+
+.payment-message p{
+    font-size:15px;
+    line-height:1.8;
+    color:#555;
+}
+
+
+
+/* ==========================================
+ADMIN DASHBOARD MOBILE
+========================================== */
+
+@media screen and (max-width:768px){
+
+/* Sidebar */
+
+.sidebar{
+
+    position:fixed;
+
+    left:-280px;
+
+    top:0;
+
+    width:260px;
+
+    height:100vh;
+
+    background:#fff;
+
+    z-index:9999;
+
+    transition:.3s;
+
+    overflow-y:auto;
+
+}
+
+.sidebar.show{
+
+    left:0;
+
+}
+
+/* Main Content */
+
+.content{
+
+    margin-left:0 !important;
+
+    width:100%;
+
+}
+
+/* Topbar */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+/* Menu Button */
+
+.menu-toggle{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+/* Search */
+
+.search{
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+.search input{
+
+    width:100%;
+
+}
+
+/* Welcome */
+
+.welcome{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    padding:20px;
+
+}
+
+/* Cards */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    padding:15px;
+
+}
+
+.card{
+
+    padding:20px;
+
+}
+
+/* Dashboard */
+
+.dashboard-grid{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    padding:15px;
+
+}
+
+/* Table */
+
+.bookings{
+
+    overflow-x:auto;
+
+}
+
+.bookings table{
+
+    min-width:600px;
+
+}
+
+/* Right Panel */
+
+.right-panel{
+
+    width:100%;
+
+}
+
+/* Chart */
+
+.chart-card canvas{
+
+    width:100% !important;
+
+}
+
+/* Footer */
+
+footer{
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+}

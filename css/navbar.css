@@ -1,0 +1,656 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8fafc;
+}
+
+header{
+    width:100%;
+    position:sticky;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:#fff;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.navbar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:18px 80px;
+
+}
+
+.logo a{
+
+    text-decoration:none;
+
+    font-size:34px;
+
+    color:#2563eb;
+
+    font-weight:700;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:45px;
+
+    list-style:none;
+
+    flex:1;
+
+    margin:0;
+
+}
+
+.nav-links li{
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#334155;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#2563eb;
+
+}
+
+.active{
+
+    color:#2563eb;
+
+}
+
+.book-btn{
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:#2563eb;
+
+    padding:13px 28px;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.book-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/*====================================
+ACCOUNT AREA
+====================================*/
+
+.account-area{
+
+    min-width:180px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+/*====================================
+LOGIN
+====================================*/
+
+.login-btn{
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    color:#1d4ed8;
+
+}
+
+/*====================================
+REGISTER
+====================================*/
+
+.register-btn{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:10px 22px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.register-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/*====================================
+MENU BUTTON
+====================================*/
+
+#menuBtn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+#menuBtn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/*====================================
+DROPDOWN
+====================================*/
+
+#menuDropdown{
+
+    position:absolute;
+
+    top:65px;
+
+    right:0;
+
+    width:240px;
+
+    background:white;
+
+    border-radius:15px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+    overflow:hidden;
+
+    display:none;
+
+    z-index:9999;
+
+}
+
+#menuDropdown a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px 22px;
+
+    color:#333;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+#menuDropdown a:hover{
+
+    background:#f3f6ff;
+
+    color:#2563eb;
+
+}
+
+/* ==========================
+PROFILE MODAL
+========================== */
+
+.profile-modal{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(8px);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+.profile-box{
+
+    width:480px;
+
+    max-width:90%;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 25px 50px rgba(0,0,0,.2);
+
+    animation:popup .25s ease;
+
+    position:relative;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.8);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+#closeProfile{
+
+    position:absolute;
+
+    right:20px;
+
+    top:15px;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    color:#666;
+
+}
+
+.profile-box h2{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+.profile-image{
+
+    text-align:center;
+
+    font-size:90px;
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+
+}
+
+.profile-details{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.profile-details label{
+
+    font-weight:600;
+
+    color:#222;
+
+    font-size:15px;
+
+}
+
+.profile-details input{
+
+    width:100%;
+
+    padding:12px 15px;
+
+    border:1px solid #dcdcdc;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    outline:none;
+
+    box-sizing:border-box;
+
+}
+
+.profile-details input:focus{
+
+    border-color:#2563eb;
+
+}
+
+.profile-details input[readonly]{
+
+    background:#f4f4f4;
+
+    cursor:not-allowed;
+
+}
+
+.profile-buttons{
+
+    margin-top:25px;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.profile-buttons button{
+
+    flex:1;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+#editProfileBtn{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+#closeProfileBtn{
+
+    background:#ececec;
+
+}
+
+.password-box{
+
+    position:relative;
+
+}
+
+.password-box input{
+
+    width:100%;
+
+    padding-right:45px;
+
+}
+
+.password-box i{
+
+    position:absolute;
+
+    right:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:#666;
+
+}
+/* ==========================
+HIDE MOBILE NAVIGATION ON DESKTOP
+========================== */
+
+#mobileNav{
+    display:none;
+}
+
+/* ===========================================
+PROFILE & PASSWORD MOBILE
+=========================================== */
+
+@media screen and (max-width:768px){
+
+    .profile-box{
+        width:95%;
+        max-width:95%;
+        padding:20px;
+        border-radius:18px;
+    }
+
+    .profile-box h2{
+        font-size:24px;
+        margin-bottom:15px;
+    }
+
+    .profile-image{
+        font-size:70px;
+        margin-bottom:15px;
+    }
+
+    .profile-details{
+        gap:10px;
+    }
+
+    .profile-details input{
+        padding:12px;
+        font-size:15px;
+    }
+
+    .profile-buttons{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .profile-buttons button{
+        width:100%;
+        padding:14px;
+    }
+
+    #closeProfile{
+        font-size:24px;
+        right:15px;
+        top:12px;
+    }
+
+    .password-box input{
+        padding-right:45px;
+    }
+
+    .password-box i{
+        right:15px;
+    }
+
+}
+
+/* ===========================================
+TOAST NOTIFICATION
+=========================================== */
+
+#toast{
+
+    position:fixed;
+
+    top:25px;
+
+    right:25px;
+
+    min-width:320px;
+
+    max-width:380px;
+
+    padding:18px 22px;
+
+    background:#22c55e;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    border-radius:14px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    transform:translateX(420px);
+
+    transition:.35s ease;
+
+    z-index:999999;
+
+}
+
+#toast.show{
+
+    transform:translateX(0);
+
+}
+
+#toast.error{
+
+    background:#ef4444;
+
+}
+
+#toast i{
+
+    font-size:20px;
+
+}
+
+@media(max-width:768px){
+
+    #toast{
+
+        top:15px;
+
+        left:15px;
+
+        right:15px;
+
+        min-width:auto;
+
+        max-width:none;
+
+        width:auto;
+
+    }
+
+}
+
