@@ -360,16 +360,25 @@ tbody tr:hover{
 .call-btn,
 .message-btn,
 .delete-btn{
-
     width:38px;
     height:38px;
+    min-width:38px;
+    flex-shrink:0;
     border:none;
     border-radius:8px;
     cursor:pointer;
     margin-right:5px;
     transition:.3s;
-
 }
+/* Keep all customer action buttons in one row */
+tbody td:last-child{
+    white-space:nowrap;
+}
+
+tbody td:last-child .delete-btn{
+    margin-right:0;
+}
+
 
 .view-btn{
     background:#2563eb;
