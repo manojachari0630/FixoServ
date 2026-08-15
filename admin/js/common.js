@@ -3,7 +3,7 @@ import { db } from "../../firebase/firebase-config.js";
 import {
     doc,
     onSnapshot
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 const settingsRef = doc(db, "settings", "admin");
 

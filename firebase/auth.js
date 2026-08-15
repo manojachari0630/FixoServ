@@ -8,14 +8,14 @@ import {
     onAuthStateChanged,
     GoogleAuthProvider,
     signInWithPopup
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
 import {
     doc,
     setDoc,
     getDoc,
     serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 /* ==========================================
    REGISTER USER
@@ -59,16 +59,28 @@ export async function loginUser(email, password) {
     const userCredential =
         await signInWithEmailAndPassword(
             auth,
-            email,
+            email.trim().toLowerCase(),
             password
         );
 
     const user = userCredential.user;
 
+    console.log("LOGIN UID:", user.uid);
+    console.log("LOGIN EMAIL:", user.email);
+
     const snap =
-        await getDoc(doc(db, "users", user.uid));
+        await getDoc(
+            doc(db, "users", user.uid)
+        );
+
+    console.log("FIRESTORE USER EXISTS:", snap.exists());
 
     if (!snap.exists()) {
+
+        console.error(
+            "NO FIRESTORE DOCUMENT FOR UID:",
+            user.uid
+        );
 
         throw new Error("User data not found.");
 

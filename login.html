@@ -289,11 +289,13 @@ loginForm.addEventListener("submit",async(e)=>{
 
     }
 
-    else{
+    else {
 
-        error.textContent=result.message;
+    error.textContent = "";
 
-    }
+    alert("Incorrect email or password.");
+
+}
 
 });
 

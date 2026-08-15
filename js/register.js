@@ -4,19 +4,44 @@ import { createNewUser } from "../firebase/register.js";
 
 const registerForm = document.getElementById("registerForm");
 
+const fullNameInput = document.getElementById("fullName");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("phone");
+const passwordInput = document.getElementById("password");
+const confirmPasswordInput = document.getElementById("confirmPassword");
+
+const registerBtn = document.getElementById("registerBtn");
+const loading = document.getElementById("loadingScreen");
+const error = document.getElementById("registerError");
+
+let isRegistering = false;
+
+
+/* ==========================================
+   REGISTER FORM
+========================================== */
+
 registerForm.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    const fullName = document.getElementById("fullName").value.trim();
+    // Prevent double-click / duplicate request
+    if (isRegistering) {
+        return;
+    }
 
-    const email = document.getElementById("email").value.trim();
+    error.textContent = "";
 
-    const phone = document.getElementById("phone").value.trim();
+    const fullName = fullNameInput.value.trim();
+    const email = emailInput.value.trim().toLowerCase();
+    const phone = phoneInput.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
 
-    const password = document.getElementById("password").value;
 
-    const confirmPassword = document.getElementById("confirmPassword").value;
+    /* ==========================================
+       VALIDATION
+    ========================================== */
 
     if (
         fullName === "" ||
@@ -26,146 +51,109 @@ registerForm.addEventListener("submit", async (e) => {
         confirmPassword === ""
     ) {
 
-        alert("Please fill all fields.");
-
+        error.textContent = "Please fill all fields.";
         return;
 
     }
+
 
     if (password !== confirmPassword) {
 
-        alert("Passwords do not match.");
-
+        error.textContent = "Passwords do not match.";
         return;
 
     }
+
 
     if (password.length < 6) {
 
-        alert("Password must be at least 6 characters.");
-
+        error.textContent = "Password must be at least 6 characters.";
         return;
 
     }
 
-    const result = await createNewUser(
 
-        fullName,
-        email,
-        phone,
-        password
+    /* ==========================================
+       START REGISTRATION
+    ========================================== */
 
-    );
+    isRegistering = true;
 
-    if (result.success) {
+    registerBtn.disabled = true;
 
-        alert("Account Created Successfully.");
+    if (loading) {
+        loading.style.display = "flex";
+    }
 
-        window.location.href = "login.html";
 
-    } else {
+    try {
 
-        alert(result.message);
+        const result = await createNewUser(
+            fullName,
+            email,
+            phone,
+            password
+        );
 
+
+        if (result.success) {
+
+            alert("Account Created Successfully.");
+
+            window.location.href = "login.html";
+
+            return;
+
+        }
+
+
+        error.textContent = result.message;
+
+
+    } catch (err) {
+
+        console.error("Registration error:", err);
+
+        error.textContent =
+            err.message || "Registration failed.";
+
+    }
+
+
+    /* ==========================================
+       RESET BUTTON
+    ========================================== */
+
+    isRegistering = false;
+
+    registerBtn.disabled = false;
+
+    if (loading) {
+        loading.style.display = "none";
     }
 
 });
 
-// ==========================
-// PASSWORD EYE BUTTONS
-// ==========================
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    const password = document.getElementById("password");
-    const confirmPassword =
-        document.getElementById("confirmPassword");
-
-    const togglePassword =
-        document.getElementById("togglePassword");
-
-    const toggleConfirmPassword =
-        document.getElementById("toggleConfirmPassword");
-
-
-    // Password
-    if (togglePassword && password) {
-
-        togglePassword.onclick = function () {
-
-            if (password.type === "password") {
-
-                password.type = "text";
-
-                this.classList.remove("fa-eye");
-                this.classList.add("fa-eye-slash");
-
-            } else {
-
-                password.type = "password";
-
-                this.classList.remove("fa-eye-slash");
-                this.classList.add("fa-eye");
-
-            }
-
-        };
-
-    }
-
-
-    // Confirm Password
-    if (toggleConfirmPassword && confirmPassword) {
-
-        toggleConfirmPassword.onclick = function () {
-
-            if (confirmPassword.type === "password") {
-
-                confirmPassword.type = "text";
-
-                this.classList.remove("fa-eye");
-                this.classList.add("fa-eye-slash");
-
-            } else {
-
-                confirmPassword.type = "password";
-
-                this.classList.remove("fa-eye-slash");
-                this.classList.add("fa-eye");
-
-            }
-
-        };
-
-    }
-
-});
-
-// ==========================
-// PASSWORD VISIBILITY
-// ==========================
-
-const passwordInput = document.getElementById("password");
-const confirmPasswordInput =
-    document.getElementById("confirmPassword");
+/* ==========================================
+   PASSWORD EYE
+========================================== */
 
 const passwordEye =
     document.getElementById("togglePassword");
 
-const confirmPasswordEye =
-    document.getElementById("toggleConfirmPassword");
+if (passwordEye) {
 
+    passwordEye.addEventListener("click", (e) => {
 
-// Password
-if (passwordEye && passwordInput) {
-
-    passwordEye.addEventListener("click", function () {
+        e.preventDefault();
 
         if (passwordInput.type === "password") {
 
             passwordInput.type = "text";
 
             passwordEye.classList.remove("fa-eye");
+
             passwordEye.classList.add("fa-eye-slash");
 
         } else {
@@ -173,6 +161,7 @@ if (passwordEye && passwordInput) {
             passwordInput.type = "password";
 
             passwordEye.classList.remove("fa-eye-slash");
+
             passwordEye.classList.add("fa-eye");
 
         }
@@ -182,16 +171,25 @@ if (passwordEye && passwordInput) {
 }
 
 
-// Confirm Password
-if (confirmPasswordEye && confirmPasswordInput) {
+/* ==========================================
+   CONFIRM PASSWORD EYE
+========================================== */
 
-    confirmPasswordEye.addEventListener("click", function () {
+const confirmPasswordEye =
+    document.getElementById("toggleConfirmPassword");
+
+if (confirmPasswordEye) {
+
+    confirmPasswordEye.addEventListener("click", (e) => {
+
+        e.preventDefault();
 
         if (confirmPasswordInput.type === "password") {
 
             confirmPasswordInput.type = "text";
 
             confirmPasswordEye.classList.remove("fa-eye");
+
             confirmPasswordEye.classList.add("fa-eye-slash");
 
         } else {
@@ -199,6 +197,7 @@ if (confirmPasswordEye && confirmPasswordInput) {
             confirmPasswordInput.type = "password";
 
             confirmPasswordEye.classList.remove("fa-eye-slash");
+
             confirmPasswordEye.classList.add("fa-eye");
 
         }

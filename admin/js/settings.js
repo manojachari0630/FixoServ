@@ -6,7 +6,7 @@ import {
     setDoc,
     collection,
     getDocs
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
 

@@ -50,12 +50,6 @@ footer{
 
 </ul>
 
-<a href="booking.html" class="book-btn">
-
-Book Now
-
-</a>
-
 </nav>
 
 </header>
@@ -114,7 +108,30 @@ Professional Home Services at Your Doorstep
 
 <section class="booking-section">
 
-<form id="bookingForm" novalidate>
+<!-- Auth Check Loading (Hidden by default) -->
+<div id="authCheckLoader" style="display:none;">
+    <div class="loader-container">
+        <div class="spinner"></div>
+        <p>Verifying your authentication...</p>
+    </div>
+</div>
+
+<!-- Not Authenticated Message (Shown by default) -->
+<div id="notAuthMessage">
+    <div class="auth-message">
+        <i class="fa-solid fa-lock"></i>
+        <h2>Login Required</h2>
+        <p>You need to be logged in to book a service.</p>
+        <p>Please login or register to continue.</p>
+        <div class="auth-buttons">
+            <a href="login.html" class="auth-btn login-btn">Login</a>
+            <a href="register.html" class="auth-btn register-btn">Register</a>
+        </div>
+    </div>
+</div>
+
+<!-- Booking Form (Hidden until authenticated) -->
+<form id="bookingForm" novalidate style="display:none;">
 
 <!-- STEP 1 -->
 

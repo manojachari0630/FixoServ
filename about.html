@@ -38,9 +38,104 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
 
-        <a href="booking.html" class="book-btn">Book Now</a>
+        <div class="account-area">
+
+            <div id="guestMenu">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </div>
+
+            <div id="userMenu" style="display:none;">
+
+                <button id="menuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div id="menuDropdown">
+
+                    <a href="#" id="profileBtn">
+                        <i class="fa-solid fa-user"></i>
+                        My Profile
+                    </a>
+
+                    <a href="my-bookings.html">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        My Bookings
+                    </a>
+
+                    <a href="#" id="changePasswordBtn">
+                        <i class="fa-solid fa-lock"></i>
+                        Change Password
+                    </a>
+
+                    <a href="#" id="logoutBtn">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Logout
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </nav>
+
+    <!-- Mobile Navigation -->
+
+    <div id="mobileNav">
+
+        <a href="index.html">Home</a>
+
+        <a href="about.html" class="active">About</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="booking.html">Booking</a>
+
+        <a href="contact.html">Contact</a>
+
+        <hr>
+
+        <div id="mobileGuestMenu">
+
+            <a href="login.html">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </a>
+
+            <a href="register.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Register
+            </a>
+
+        </div>
+
+        <div id="mobileUserMenu" style="display:none;">
+
+            <a href="#" id="mobileProfileBtn">
+                <i class="fa-solid fa-user"></i>
+                My Profile
+            </a>
+
+            <a href="my-bookings.html">
+                <i class="fa-solid fa-calendar-check"></i>
+                My Bookings
+            </a>
+
+            <a href="#" id="mobilePasswordBtn">
+                <i class="fa-solid fa-lock"></i>
+                Change Password
+            </a>
+
+            <a href="#" id="mobileLogoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </div>
 
 </header>
 
@@ -357,6 +452,14 @@
     </div>
 
 </section>
+
+<!-- ================= FOOTER ================= -->
+
+    <script type="module" src="js/script.js"></script>
+
+</body>
+
+</html>
 <!-- ================= CTA ================= -->
 
 <section class="cta-section">

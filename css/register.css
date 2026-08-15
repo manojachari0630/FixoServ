@@ -242,9 +242,9 @@ body{
 
 .input-group input{
 
-    width:100%;
+    width:calc(100% - 50px);
 
-    padding:15px 50px;
+    padding:15px 15px 15px 50px;
 
     border:2px solid #e5e7eb;
 
@@ -257,6 +257,10 @@ body{
     transition:.3s;
 
     background:#fff;
+
+    position: relative;
+
+    z-index: 1;
 
 }
 
@@ -284,33 +288,7 @@ body{
 
 }
 
-/* Password Eye */
 
-#togglePassword,
-#toggleConfirmPassword{
-
-    position:absolute;
-
-    right:18px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    cursor:pointer;
-
-    color:#6b7280;
-
-    transition:.3s;
-
-}
-
-#togglePassword:hover,
-#toggleConfirmPassword:hover{
-
-    color:#2563eb;
-
-}
 /* ==========================================
    TERMS & OPTIONS
 ========================================== */
@@ -728,7 +706,9 @@ body{
 
     .input-group input{
 
-        padding:14px 45px;
+        width:calc(100% - 45px);
+
+        padding:14px 15px 14px 45px;
 
         font-size:14px;
 

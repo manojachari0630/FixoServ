@@ -5,32 +5,61 @@ import {
     addDoc,
     serverTimestamp,
     getDocs
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
 import {
     onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 const bookingsRef = collection(db, "bookings");
 
 /*=========================================
-LOGIN CHECK
+LOGIN CHECK - FAST
 =========================================*/
 
 let currentUser = null;
+let isAuthenticated = false;
 
-onAuthStateChanged(auth, (user) => {
+function getAuthElements() {
+    return {
+        loader: document.getElementById("authCheckLoader"),
+        form: document.getElementById("bookingForm"),
+        message: document.getElementById("notAuthMessage")
+    };
+}
 
-    if (!user) {
+function showNotAuthenticatedState() {
+    const { loader, form, message } = getAuthElements();
+    if (loader) loader.style.display = "none";
+    if (form) form.style.display = "none";
+    if (message) message.style.display = "block";
+    isAuthenticated = false;
+}
 
+function showAuthenticatedState() {
+    const { loader, form, message } = getAuthElements();
+    if (loader) loader.style.display = "none";
+    if (message) message.style.display = "none";
+    if (form) form.style.display = "block";
+    isAuthenticated = true;
+}
+
+function requireAuth() {
+    if (!isAuthenticated) {
         alert("Please login first to book a service.");
-
-        window.location.href = "login.html";
-
-        return;
-
+        return false;
     }
+    return true;
+}
 
+// Check user authentication
+onAuthStateChanged(auth, (user) => {
     currentUser = user;
 
+    if (user) {
+        showAuthenticatedState();
+    } else {
+        showNotAuthenticatedState();
+    }
 });
 
 /*=========================================
@@ -127,6 +156,7 @@ nextBtns.forEach(button => {
 
     button.addEventListener("click", () => {
 
+        if (!requireAuth()) return;
         if (!validateStep(current)) return;
 
         if (current < pages.length - 1) {
@@ -274,21 +304,12 @@ form.addEventListener("submit", async function (e) {
 
     e.preventDefault();
 
+    if (!requireAuth()) return;
     if (!validateStep(current)) {
         return;
     }
 
     try {
-
-        if (!currentUser) {
-
-    alert("Please login first.");
-
-    window.location.href = "login.html";
-
-    return;
-
-}
 
     const checked =
 document.querySelectorAll('input[name="service"]:checked');
