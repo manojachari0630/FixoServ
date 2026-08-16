@@ -54,7 +54,26 @@ header{
 /* Guest Buttons */
 
 #guestMenu{
-    display:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+#guestMenu .login-btn{
+    color:#2563eb;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+}
+
+#guestMenu .register-btn{
+    background:#2563eb;
+    color:white;
+    padding:8px 12px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
 }
 
 
